@@ -712,7 +712,7 @@ function toggleQR() {
   }
 }
 
-// Generate QR Code - Points to current page URL
+// Generate QR Code
 function generateQRCode() {
   const qrContainer = document.getElementById('qrCode');
   qrContainer.innerHTML = '';
@@ -732,34 +732,30 @@ function generateQRCode() {
   }
 }
 
-// Call Function - Show Contact Selection
+// ✅ FINAL CORRECT: Call Function with POPUP - CORRECT PHONE NUMBERS (ALL 12 DIGITS)
 function callPhone() {
-  const nirmalPhone = '+977984163107';
-  const nilkeshorPhone = '+977984133139';
-  
-  // Create popup to choose contact
   const choice = confirm(`कसलाई कल गर्न चाहनुहुन्छ?\n\nOK = निर्मल महर्जन\nCancel = नील केशोर महर्जन`);
   
-  const phone = choice ? nirmalPhone : nilkeshorPhone;
-  const name = choice ? 'Nirmal Maharjan' : 'Nilkeshor Maharjan';
-  
-  window.location.href = `tel:${phone}`;
-  showSyncStatus(`📞 Calling: ${name}`);
+  if (choice) {
+    window.location.href = 'tel:+9779841631075';
+    showSyncStatus('📞 Calling: Nirmal Maharjan');
+  } else {
+    window.location.href = 'tel:+9779841331396';
+    showSyncStatus('📞 Calling: Nilkeshor Maharjan');
+  }
 }
 
-// WhatsApp Function - Show Contact Selection
+// ✅ FINAL CORRECT: WhatsApp Function with POPUP - CORRECT PHONE NUMBERS
 function whatsapp() {
-  const nirmalPhone = '977984163107';
-  const nilkeshorPhone = '977984133139';
-  
-  // Create popup to choose contact
   const choice = confirm(`कसलाई सन्देश गर्न चाहनुहुन्छ?\n\nOK = निर्मल महर्जन\nCancel = नील केशोर महर्जन`);
   
-  const phone = choice ? nirmalPhone : nilkeshorPhone;
-  const name = choice ? 'Nirmal Maharjan' : 'Nilkeshor Maharjan';
-  
-  window.open(`https://wa.me/${phone}?text=नमस्ते%20निर्मल%20कम्प्युटर`, '_blank');
-  showSyncStatus(`💬 WhatsApp: ${name}`);
+  if (choice) {
+    window.open(`https://wa.me/9779841631075?text=नमस्ते%20निर्मल%20कम्प्युटर`, '_blank');
+    showSyncStatus('💬 WhatsApp: Nirmal Maharjan');
+  } else {
+    window.open(`https://wa.me/9779841331396?text=नमस्ते%20निर्मल%20कम्प्युटर`, '_blank');
+    showSyncStatus('💬 WhatsApp: Nilkeshor Maharjan');
+  }
 }
 
 // Download vCard
@@ -805,17 +801,15 @@ function shareProfile() {
   }
 }
 
-// Initialize on page load
+// Initialize
 document.addEventListener('DOMContentLoaded', () => {
   initViewCounter();
   
-  // Check offline status
   if (!navigator.onLine) {
     document.getElementById('offlineBanner').classList.add('show');
     showSyncStatus('⚠️ Offline Mode');
   }
   
-  // Register Service Worker for offline capability
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('service-worker.js').catch(err => {
       console.log('Service Worker registration failed:', err);
