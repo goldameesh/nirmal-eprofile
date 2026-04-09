@@ -1,0 +1,63 @@
+{
+  "name": "Nirmal Computer & Photocopy Center",
+  "short_name": "Nirmal Computer",
+  "description": "Professional Computer Services, Printing, Photocopy, and Documentation Services in Kathmandu",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1E40AF",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%231E40AF' width='192' height='192'/><text x='50%' y='50%' font-size='100' font-weight='bold' fill='%23FFD700' text-anchor='middle' dy='.3em'>न</text></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect fill='%231E40AF' width='512' height='512'/><text x='50%' y='50%' font-size='300' font-weight='bold' fill='%23FFD700' text-anchor='middle' dy='.3em'>न</text></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 540 720'><rect fill='%23ffffff' width='540' height='720'/><rect fill='%231E40AF' width='540' height='200'/><text x='270' y='120' font-size='60' font-weight='bold' fill='%23FFD700' text-anchor='middle'>Nirmal</text></svg>",
+      "sizes": "540x720",
+      "type": "image/svg+xml",
+      "form_factor": "narrow"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Call Nirmal",
+      "short_name": "Call",
+      "description": "Call Nirmal Computer Center",
+      "url": "/?action=call",
+      "icons": [
+        {
+          "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%231E40AF' width='192' height='192'/><text x='50%' y='50%' font-size='100' text-anchor='middle' dy='.3em'>📞</text></svg>",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "WhatsApp",
+      "short_name": "WhatsApp",
+      "description": "Message on WhatsApp",
+      "url": "/?action=whatsapp",
+      "icons": [
+        {
+          "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%231E40AF' width='192' height='192'/><text x='50%' y='50%' font-size='100' text-anchor='middle' dy='.3em'>💬</text></svg>",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  "categories": ["business", "productivity"],
+  "screenshots_accessibility": {
+    "text": "Nirmal Computer & Photocopy profile"
+  }
+}
