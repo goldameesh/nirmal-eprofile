@@ -106,23 +106,6 @@ html, body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
   border-radius: 0 8px 8px 0; 
 }
 
-.qr-btn { 
-  background: transparent; 
-  border: 1.5px solid #1E40AF; 
-  padding: 10px 14px; 
-  border-radius: 8px; 
-  cursor: pointer; 
-  font-size: 12px; 
-  font-weight: 700; 
-  transition: all 0.3s; 
-  color: #1E40AF;
-}
-
-.qr-btn:hover { 
-  background: #1E40AF; 
-  color: #FFF; 
-}
-
 .content { 
   padding: 24px 16px; 
   max-height: 600px; 
@@ -295,81 +278,6 @@ html, body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
   display: none; 
 }
 
-.qr-modal { 
-  display: none; 
-  position: fixed; 
-  top: 0; 
-  left: 0; 
-  right: 0; 
-  bottom: 0; 
-  background: rgba(0,0,0,0.7); 
-  align-items: center; 
-  justify-content: center; 
-  z-index: 1000; 
-  padding: 20px;
-}
-
-.qr-modal.active { 
-  display: flex; 
-}
-
-.qr-content { 
-  background: #fff; 
-  padding: 24px; 
-  border-radius: 16px; 
-  text-align: center; 
-  max-width: 90%;
-  border: 2px solid #1E40AF;
-  box-shadow: 0 10px 40px rgba(30, 64, 175, 0.3);
-}
-
-.qr-content h3 { 
-  font-size: 16px; 
-  font-weight: 700; 
-  margin-bottom: 8px; 
-  color: #1E40AF; 
-}
-
-.qr-content p {
-  font-size: 12px;
-  color: #666;
-  margin-bottom: 16px;
-}
-
-.qr-code { 
-  margin: 16px 0; 
-  background: #FFF; 
-  padding: 16px; 
-  border-radius: 12px; 
-  border: 2px solid #1E40AF;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 240px;
-}
-
-.qr-code img {
-  max-width: 100%;
-  height: auto;
-}
-
-.qr-close { 
-  margin-top: 16px; 
-  padding: 10px 20px; 
-  background: #1E40AF; 
-  color: #FFF; 
-  border: none; 
-  border-radius: 8px; 
-  cursor: pointer; 
-  font-weight: 700;
-  transition: all 0.3s;
-}
-
-.qr-close:hover {
-  background: #1E40AF;
-  transform: scale(1.05);
-}
-
 .offline-banner {
   background: #FFA500;
   color: #000;
@@ -441,7 +349,6 @@ html, body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
       <button class="active" onclick="toggleLang(this, 'ne')">नेपाली</button>
       <button onclick="toggleLang(this, 'en')">English</button>
     </div>
-    <button class="qr-btn" onclick="toggleQR()">📱 QR</button>
   </div>
 
   <div class="content">
@@ -645,18 +552,7 @@ html, body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
   </div>
 </div>
 
-<div class="qr-modal" id="qrModal">
-  <div class="qr-content">
-    <h3>📱 Share with QR Code</h3>
-    <p>Scan to view full profile & services</p>
-    <div class="qr-code" id="qrCode"></div>
-    <button class="qr-close" onclick="toggleQR()">Close</button>
-  </div>
-</div>
-
 <div class="sync-status" id="syncStatus">✅ Synced</div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode.js/1.5.3/qrcode.min.js"></script>
 
 <script>
 // Offline Detection
@@ -697,39 +593,6 @@ function toggleLang(btn, lang) {
   
   document.getElementById('ne-content').classList.toggle('hidden', lang !== 'ne');
   document.getElementById('en-content').classList.toggle('hidden', lang !== 'en');
-}
-
-// QR Code Toggle
-function toggleQR() {
-  const modal = document.getElementById('qrModal');
-  modal.classList.toggle('active');
-  
-  if (modal.classList.contains('active')) {
-    const qrContainer = document.getElementById('qrCode');
-    if (qrContainer.innerHTML === '') {
-      generateQRCode();
-    }
-  }
-}
-
-// Generate QR Code
-function generateQRCode() {
-  const qrContainer = document.getElementById('qrCode');
-  qrContainer.innerHTML = '';
-  
-  try {
-    const currentURL = window.location.href;
-    new QRCode(qrContainer, {
-      text: currentURL,
-      width: 200,
-      height: 200,
-      colorDark: '#1E40AF',
-      colorLight: '#FFFFFF',
-      correctLevel: QRCode.CorrectLevel.H
-    });
-  } catch(e) {
-    qrContainer.innerHTML = '<p style="color: #1E40AF; font-weight: 700;">QR Code Error</p>';
-  }
 }
 
 // ✅ FINAL CORRECT: Call Function with POPUP - CORRECT PHONE NUMBERS (ALL 12 DIGITS)
@@ -810,11 +673,8 @@ document.addEventListener('DOMContentLoaded', () => {
     showSyncStatus('⚠️ Offline Mode');
   }
   
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js').catch(err => {
-      console.log('Service Worker registration failed:', err);
-    });
-  }
+  // Service Worker removed - not required for e-profile functionality
+  // QR code and all features work without it
 });
 </script>
 
