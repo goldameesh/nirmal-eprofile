@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Nirmal Computer & Photocopy Center - Professional Services in Kathmandu">
+<meta name="theme-color" content="#1E40AF">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%231E40AF' width='192' height='192'/><text x='50%' y='50%' font-size='100' font-weight='bold' fill='%23FFD700' text-anchor='middle' dy='.3em'>न</text></svg>">
+<title>Nirmal Computer & Photocopy - काठमाडौं</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background: #f5f5f5; }
+
+.container { max-width: 500px; margin: 0 auto; background: #fff; border-radius: 18px; border: 1px solid #e0e0e0; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+
+.header { 
+  background: linear-gradient(135deg, #FFD700 0%, #FFF44F 40%, #1E40AF 100%);
+  padding: 36px 20px; 
+  text-align: center; 
+  border-bottom: 5px solid #1E40AF;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(30, 64, 175, 0.15);
+}
+
+.header-logo { 
+  font-size: 32px; 
+  font-weight: 800; 
+  color: #1E40AF;
+  letter-spacing: -1px;
+  text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+}
+
+.header-sub { 
+  font-size: 14px; 
+  color: #1E40AF;
+  margin-top: 8px; 
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.badge { 
+  display: inline-block; 
+  background: #1E40AF; 
+  color: #FFF; 
+  padding: 6px 14px; 
+  border-radius: 20px; 
+  font-size: 10px; 
+  font-weight: 700; 
+  margin-top: 12px; 
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(30, 64, 175, 0.3);
+}
+
+.view-counter {
+  background: rgba(30, 64, 175, 0.1);
+  color: #1E40AF;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 10px;
+  font-weight: 700;
+  margin-top: 10px;
+  display: inline-block;
+  letter-spacing: 0.3px;
+}
+
+.controls { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 16px; 
+  border-bottom: 1px solid #e0e0e0; 
+  background: #f9f9f9; 
+}
+
+.toggle-wrapper { 
+  display: flex; 
+  gap: 0; 
+}
+
+.toggle-wrapper button { 
+  flex: 1; 
+  padding: 10px 14px; 
+  border: 1.5px solid #1E40AF; 
+  background: #fff; 
+  cursor: pointer; 
+  font-size: 12px; 
+  font-weight: 700; 
+  transition: all 0.3s; 
+  color: #1E40AF;
+}
+
+.toggle-wrapper button.active { 
+  background: #1E40AF; 
+  color: #FFF; 
+  border-color: #1E40AF; 
+}
+
+.toggle-wrapper button:first-child { 
+  border-radius: 8px 0 0 8px; 
+}
+
+.toggle-wrapper button:last-child { 
+  border-radius: 0 8px 8px 0; 
+}
+
+.qr-btn { 
+  background: transparent; 
+  border: 1.5px solid #1E40AF; 
+  padding: 10px 14px; 
+  border-radius: 8px; 
+  cursor: pointer; 
+  font-size: 12px; 
+  font-weight: 700; 
+  transition: all 0.3s; 
+  color: #1E40AF;
+}
+
+.qr-btn:hover { 
+  background: #1E40AF; 
+  color: #FFF; 
+}
+
+.content { 
+  padding: 24px 16px; 
+  max-height: 600px; 
+  overflow-y: auto; 
+}
+
+.section-title { 
+  font-size: 11px; 
+  font-weight: 800; 
+  color: #1E40AF; 
+  margin-top: 20px; 
+  margin-bottom: 16px; 
+  text-transform: uppercase; 
+  letter-spacing: 1.2px; 
+}
+
+.services-grid { 
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 12px; 
+}
+
+.service-box { 
+  padding: 16px; 
+  border-radius: 12px; 
+  border: 1.5px solid #e0e0e0; 
+  background: #f9f9f9; 
+  transition: all 0.3s; 
+  cursor: pointer;
+  border-left: 4px solid #1E40AF;
+}
+
+.service-box:hover { 
+  transform: translateY(-3px); 
+  border-color: #1E40AF; 
+  box-shadow: 0 6px 16px rgba(30, 64, 175, 0.15); 
+  background: rgba(30, 64, 175, 0.03);
+}
+
+.service-icon { 
+  font-size: 24px; 
+  margin-bottom: 10px; 
+}
+
+.service-title { 
+  font-weight: 700; 
+  font-size: 12px; 
+  color: #1E40AF; 
+  margin-bottom: 4px; 
+}
+
+.service-desc { 
+  font-size: 11px; 
+  color: #666; 
+  line-height: 1.4; 
+}
+
+.divider { 
+  height: 1px; 
+  background: #e0e0e0; 
+  margin: 20px 0; 
+}
+
+.contact-section { }
+
+.contact-item { 
+  display: flex; 
+  align-items: center; 
+  gap: 14px; 
+  padding: 14px; 
+  background: #f9f9f9; 
+  border-radius: 10px; 
+  margin-bottom: 10px; 
+  border: 1.5px solid #e0e0e0; 
+  transition: all 0.3s;
+  border-left: 4px solid #1E40AF;
+}
+
+.contact-item:hover { 
+  border-color: #1E40AF;
+  background: rgba(30, 64, 175, 0.03);
+}
+
+.contact-icon { 
+  width: 40px; 
+  height: 40px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  background: linear-gradient(135deg, #FFD700, #1E40AF);
+  border-radius: 10px; 
+  color: #FFF; 
+  font-size: 18px; 
+  flex-shrink: 0;
+  font-weight: 700;
+}
+
+.contact-info { 
+  flex: 1; 
+}
+
+.contact-label { 
+  font-size: 10px; 
+  color: #999; 
+  text-transform: uppercase; 
+  letter-spacing: 0.5px; 
+  font-weight: 700; 
+}
+
+.contact-value { 
+  font-size: 13px; 
+  font-weight: 700; 
+  color: #1E40AF; 
+  margin-top: 3px; 
+}
+
+.action-buttons { 
+  display: grid; 
+  grid-template-columns: 1fr 1fr 1fr 1fr; 
+  gap: 8px; 
+  padding: 20px 16px; 
+  background: #f9f9f9; 
+  border-top: 2px solid #1E40AF; 
+}
+
+.action-btn { 
+  padding: 12px 8px; 
+  border: 1.5px solid #1E40AF; 
+  background: #fff; 
+  border-radius: 10px; 
+  cursor: pointer; 
+  font-size: 11px; 
+  font-weight: 700; 
+  transition: all 0.3s; 
+  text-align: center;
+  color: #1E40AF;
+}
+
+.action-btn:hover { 
+  background: #1E40AF; 
+  color: #FFF; 
+  transform: scale(1.05);
+}
+
+.action-btn:active {
+  transform: scale(0.98);
+}
+
+.footer { 
+  padding: 20px 16px; 
+  text-align: center; 
+  background: linear-gradient(135deg, #FFD700, #1E40AF);
+  border-top: 3px solid #1E40AF;
+}
+
+.footer-text { 
+  font-size: 13px; 
+  font-weight: 700; 
+  color: #1E40AF; 
+}
+
+.footer-sub { 
+  font-size: 11px; 
+  color: #1E40AF; 
+  margin-top: 6px; 
+  font-weight: 600; 
+}
+
+.hidden { 
+  display: none; 
+}
+
+.qr-modal { 
+  display: none; 
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  background: rgba(0,0,0,0.7); 
+  align-items: center; 
+  justify-content: center; 
+  z-index: 1000; 
+  padding: 20px;
+}
+
+.qr-modal.active { 
+  display: flex; 
+}
+
+.qr-content { 
+  background: #fff; 
+  padding: 24px; 
+  border-radius: 16px; 
+  text-align: center; 
+  max-width: 90%;
+  border: 2px solid #1E40AF;
+  box-shadow: 0 10px 40px rgba(30, 64, 175, 0.3);
+}
+
+.qr-content h3 { 
+  font-size: 16px; 
+  font-weight: 700; 
+  margin-bottom: 8px; 
+  color: #1E40AF; 
+}
+
+.qr-content p {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 16px;
+}
+
+.qr-code { 
+  margin: 16px 0; 
+  background: #FFF; 
+  padding: 16px; 
+  border-radius: 12px; 
+  border: 2px solid #1E40AF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 240px;
+}
+
+.qr-code img {
+  max-width: 100%;
+  height: auto;
+}
+
+.qr-close { 
+  margin-top: 16px; 
+  padding: 10px 20px; 
+  background: #1E40AF; 
+  color: #FFF; 
+  border: none; 
+  border-radius: 8px; 
+  cursor: pointer; 
+  font-weight: 700;
+  transition: all 0.3s;
+}
+
+.qr-close:hover {
+  background: #1E40AF;
+  transform: scale(1.05);
+}
+
+.offline-banner {
+  background: #FFA500;
+  color: #000;
+  padding: 10px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  display: none;
+}
+
+.offline-banner.show {
+  display: block;
+}
+
+.sync-status {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 8px 12px;
+  background: #FFD700;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #000;
+  display: none;
+  z-index: 999;
+}
+
+.sync-status.show {
+  display: block;
+  animation: pulse 0.6s ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@media (max-width: 480px) {
+  .container {
+    border-radius: 0;
+    border: none;
+  }
+  
+  .header {
+    padding: 28px 16px;
+  }
+  
+  .header-logo {
+    font-size: 28px;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="offline-banner" id="offlineBanner">📡 Offline Mode - Basic Info Available</div>
+
+<div class="container">
+  <div class="header">
+    <div class="header-logo">निर्मल</div>
+    <div class="header-sub">कम्प्युटर एण्ड फोटोकपी सेन्टर</div>
+    <div class="badge">📍 काठमाडौं</div>
+    <div class="view-counter" id="viewCounter">👁️ Views: 0</div>
+  </div>
+
+  <div class="controls">
+    <div class="toggle-wrapper">
+      <button class="active" onclick="toggleLang(this, 'ne')">नेपाली</button>
+      <button onclick="toggleLang(this, 'en')">English</button>
+    </div>
+    <button class="qr-btn" onclick="toggleQR()">📱 QR</button>
+  </div>
+
+  <div class="content">
+    <div id="ne-content">
+      <div class="section-title">🎯 सेवाहरु</div>
+      <div class="services-grid">
+        <div class="service-box">
+          <div class="service-icon">🏛️</div>
+          <div class="service-title">भूसेवा केन्द्र</div>
+          <div class="service-desc">अनलाइन भूसेवा र सम्पत्ति दस्तावेज</div>
+        </div>
+        <div class="service-box">
+          <div class="service-icon">📋</div>
+          <div class="service-title">मालपोत सेवा</div>
+          <div class="service-desc">कानूनी दस्तावेज प्रशोधन</div>
+        </div>
+        <div class="service-box">
+          <div class="service-icon">🖨️</div>
+          <div class="service-title">नवशा प्रिन्ट</div>
+          <div class="service-desc">उच्च गुणस्तरको छपाई</div>
+        </div>
+        <div class="service-box">
+          <div class="service-icon">📋</div>
+          <div class="service-title">फोटोकपी</div>
+          <div class="service-desc">हरेक कागजपत्रको कपी</div>
+        </div>
+        <div class="service-box">
+          <div class="service-icon">🌈</div>
+          <div class="service-title">कलर प्रिन्ट</div>
+          <div class="service-desc">पेशेवर रङ्गीन सेवा</div>
+        </div>
+        <div class="service-box">
+          <div class="service-icon">📑</div>
+          <div class="service-title">स्पाइरल बाँध</div>
+          <div class="service-desc">स्पाइरल र हार्ड बाँध सेवा</div>
+        </div>
+        <div class="service-box">
+          <div class="service-icon">🆔</div>
+          <div class="service-title">PVC कार्ड</div>
+          <div class="service-desc">पहिचान र व्यवसाय कार्ड</div>
+        </div>
+        <div class="service-box">
+          <div class="service-icon">✨</div>
+          <div class="service-title">लेमिनेशन</div>
+          <div class="service-desc">सुरक्षा कोटिङ्ग सेवा</div>
+        </div>
+        <div class="service-box">
+          <div class="service-icon">📷</div>
+          <div class="service-title">स्वच्छन</div>
+          <div class="service-desc">डिजिटल स्क्यानिङ्ग</div>
+        </div>
+        <div class="service-box">
+          <div class="service-icon">📦</div>
+          <div class="service-title">स्टेशनरी</div>
+          <div class="service-desc">कार्यालय आपूर्ति सामग्री</div>
+        </div>
+        <div class="service-box">
+          <div class="service-icon">👕</div>
+          <div class="service-title">फेब्रिक प्रिन्ट</div>
+          <div class="service-desc">कपडा र झोला प्रिन्टिङ्ग</div>
+        </div>
+        <div class="service-box">
+          <div class="service-icon">🏠</div>
+          <div class="service-title">घर/जग्गा</div>
+          <div class="service-desc">सम्पत्ति लेनदेन सेवा</div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="contact-section">
+        <div class="section-title">📞 सम्पर्क जानकारी</div>
+        <div class="contact-item">
+          <div class="contact-icon">📱</div>
+          <div class="contact-info">
+            <div class="contact-label">निर्मल महर्जन</div>
+            <div class="contact-value">+977 9841631075</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📱</div>
+          <div class="contact-info">
+            <div class="contact-label">नील केशोर महर्जन</div>
+            <div class="contact-value">+977 9841331396</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div class="contact-info">
+            <div class="contact-label">ठेगाना</div>
+            <div class="contact-value">कालंकी, काठमाडौं</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="en-content" class="hidden">
+      <div class="section-title">🎯 Services</div>
+      <div class="services-grid">
+        <div class="service-box">
+          <div class="service-icon">🏛️</div>
+          <div class="service-title">Land Registry</div>
+          <div class="service-desc">Online property services</div>
+        </div>
+        <div class="service-box">
+          <div class="service-icon">📋</div>
+          <div class="service-title">Property Services</div>
+          <div class="service-desc">Legal documentation</div>
+        </div>
+        <div class="service-box">
+          <div class="service-icon">🖨️</div>
+          <div class="service-title">New Print</div>
+          <div class="service-desc">High-quality printing</div>
+        </div>
+        <div class="service-box">
+          <div class="service-icon">📋</div>
+          <div class="service-title">Photocopy</div>
+          <div class="service-desc">All document copies</div>
+        </div>
+        <div class="service-box">
+          <div class="service-icon">🌈</div>
+          <div class="service-title">Color Print</div>
+          <div class="service-desc">Professional coloring</div>
+        </div>
+        <div class="service-box">
+          <div class="service-icon">📑</div>
+          <div class="service-title">Binding</div>
+          <div class="service-desc">Spiral & hard binding</div>
+        </div>
+        <div class="service-box">
+          <div class="service-icon">🆔</div>
+          <div class="service-title">PVC Cards</div>
+          <div class="service-desc">ID & business cards</div>
+        </div>
+        <div class="service-box">
+          <div class="service-icon">✨</div>
+          <div class="service-title">Lamination</div>
+          <div class="service-desc">Protective coating</div>
+        </div>
+        <div class="service-box">
+          <div class="service-icon">📷</div>
+          <div class="service-title">Scanning</div>
+          <div class="service-desc">Digital scanning</div>
+        </div>
+        <div class="service-box">
+          <div class="service-icon">📦</div>
+          <div class="service-title">Stationery</div>
+          <div class="service-desc">Office supplies</div>
+        </div>
+        <div class="service-box">
+          <div class="service-icon">👕</div>
+          <div class="service-title">Fabric Print</div>
+          <div class="service-desc">Cloth & bag printing</div>
+        </div>
+        <div class="service-box">
+          <div class="service-icon">🏠</div>
+          <div class="service-title">Real Estate</div>
+          <div class="service-desc">Property transactions</div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="contact-section">
+        <div class="section-title">📞 Contact Information</div>
+        <div class="contact-item">
+          <div class="contact-icon">📱</div>
+          <div class="contact-info">
+            <div class="contact-label">Nirmal Maharjan</div>
+            <div class="contact-value">+977 9841631075</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📱</div>
+          <div class="contact-info">
+            <div class="contact-label">Nilkeshor Maharjan</div>
+            <div class="contact-value">+977 9841331396</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div class="contact-info">
+            <div class="contact-label">Address</div>
+            <div class="contact-value">Kalanki, Kathmandu</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="action-buttons">
+    <button class="action-btn" onclick="callPhone()">📞</button>
+    <button class="action-btn" onclick="whatsapp()">💬</button>
+    <button class="action-btn" onclick="downloadVCard()">💾</button>
+    <button class="action-btn" onclick="shareProfile()">📤</button>
+  </div>
+
+  <div class="footer">
+    <p class="footer-text">Nirmal Computer & Photocopy</p>
+    <p class="footer-sub">Kalanki, Kathmandu • Nepal</p>
+  </div>
+</div>
+
+<div class="qr-modal" id="qrModal">
+  <div class="qr-content">
+    <h3>📱 Share with QR Code</h3>
+    <p>Scan to view full profile & services</p>
+    <div class="qr-code" id="qrCode"></div>
+    <button class="qr-close" onclick="toggleQR()">Close</button>
+  </div>
+</div>
+
+<div class="sync-status" id="syncStatus">✅ Synced</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode.js/1.5.3/qrcode.min.js"></script>
+
+<script>
+// Offline Detection
+window.addEventListener('online', () => {
+  document.getElementById('offlineBanner').classList.remove('show');
+  showSyncStatus('✅ Back Online');
+});
+
+window.addEventListener('offline', () => {
+  document.getElementById('offlineBanner').classList.add('show');
+  showSyncStatus('⚠️ Offline Mode');
+});
+
+// View Counter - localStorage
+function initViewCounter() {
+  try {
+    let views = localStorage.getItem('nirmal_views') || 0;
+    views = parseInt(views) + 1;
+    localStorage.setItem('nirmal_views', views);
+    document.getElementById('viewCounter').textContent = '👁️ Views: ' + views;
+  } catch(e) {
+    console.log('localStorage not available');
+  }
+}
+
+// Show Sync Status
+function showSyncStatus(message) {
+  const status = document.getElementById('syncStatus');
+  status.textContent = message;
+  status.classList.add('show');
+  setTimeout(() => status.classList.remove('show'), 3000);
+}
+
+// Language Toggle
+function toggleLang(btn, lang) {
+  document.querySelectorAll('.toggle-wrapper button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  
+  document.getElementById('ne-content').classList.toggle('hidden', lang !== 'ne');
+  document.getElementById('en-content').classList.toggle('hidden', lang !== 'en');
+}
+
+// QR Code Toggle
+function toggleQR() {
+  const modal = document.getElementById('qrModal');
+  modal.classList.toggle('active');
+  
+  if (modal.classList.contains('active')) {
+    const qrContainer = document.getElementById('qrCode');
+    if (qrContainer.innerHTML === '') {
+      generateQRCode();
+    }
+  }
+}
+
+// Generate QR Code - Points to current page URL
+function generateQRCode() {
+  const qrContainer = document.getElementById('qrCode');
+  qrContainer.innerHTML = '';
+  
+  try {
+    const currentURL = window.location.href;
+    new QRCode(qrContainer, {
+      text: currentURL,
+      width: 200,
+      height: 200,
+      colorDark: '#1E40AF',
+      colorLight: '#FFFFFF',
+      correctLevel: QRCode.CorrectLevel.H
+    });
+  } catch(e) {
+    qrContainer.innerHTML = '<p style="color: #1E40AF; font-weight: 700;">QR Code Error</p>';
+  }
+}
+
+// Call Function - Show Contact Selection
+function callPhone() {
+  const nirmalPhone = '+977984163107';
+  const nilkeshorPhone = '+977984133139';
+  
+  // Create popup to choose contact
+  const choice = confirm(`कसलाई कल गर्न चाहनुहुन्छ?\n\nOK = निर्मल महर्जन\nCancel = नील केशोर महर्जन`);
+  
+  const phone = choice ? nirmalPhone : nilkeshorPhone;
+  const name = choice ? 'Nirmal Maharjan' : 'Nilkeshor Maharjan';
+  
+  window.location.href = `tel:${phone}`;
+  showSyncStatus(`📞 Calling: ${name}`);
+}
+
+// WhatsApp Function - Show Contact Selection
+function whatsapp() {
+  const nirmalPhone = '977984163107';
+  const nilkeshorPhone = '977984133139';
+  
+  // Create popup to choose contact
+  const choice = confirm(`कसलाई सन्देश गर्न चाहनुहुन्छ?\n\nOK = निर्मल महर्जन\nCancel = नील केशोर महर्जन`);
+  
+  const phone = choice ? nirmalPhone : nilkeshorPhone;
+  const name = choice ? 'Nirmal Maharjan' : 'Nilkeshor Maharjan';
+  
+  window.open(`https://wa.me/${phone}?text=नमस्ते%20निर्मल%20कम्प्युटर`, '_blank');
+  showSyncStatus(`💬 WhatsApp: ${name}`);
+}
+
+// Download vCard
+function downloadVCard() {
+  const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:Nirmal Computer & Photocopy Center
+ORG:Nirmal Computer & Photocopy
+TEL;TYPE=WORK:+977 9841631075
+TEL;TYPE=WORK:+977 9841331396
+ADR:;;Kalanki Malpot;;Kathmandu;;Nepal
+NOTE:Nirmal Maharjan | Nilkeshor Maharjan\nProfessional Computer Services - Printing, Photocopy, PVC Cards, Lamination, Scanning, Binding, Land Registry Services, Property Documentation
+URL:${window.location.href}
+END:VCARD`;
+
+  const element = document.createElement('a');
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(vcard));
+  element.setAttribute('download', 'Nirmal_Computer.vcf');
+  element.style.display = 'none';
+  document.body.appendChild(element);
+  element.click();
+  document.body.removeChild(element);
+  
+  showSyncStatus('💾 vCard Downloaded');
+}
+
+// Share Profile
+function shareProfile() {
+  if (navigator.share) {
+    navigator.share({
+      title: 'Nirmal Computer & Photocopy Center',
+      text: 'Check out this amazing computer and photocopy center in Kalanki, Kathmandu!',
+      url: window.location.href
+    });
+  } else {
+    const url = window.location.href;
+    const text = `Nirmal Computer & Photocopy Center - ${url}`;
+    navigator.clipboard.writeText(text).then(() => {
+      showSyncStatus('📋 Link Copied');
+    }).catch(() => {
+      alert('Share: ' + url);
+    });
+  }
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', () => {
+  initViewCounter();
+  
+  // Check offline status
+  if (!navigator.onLine) {
+    document.getElementById('offlineBanner').classList.add('show');
+    showSyncStatus('⚠️ Offline Mode');
+  }
+  
+  // Register Service Worker for offline capability
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js').catch(err => {
+      console.log('Service Worker registration failed:', err);
+    });
+  }
+});
+</script>
+
+</body>
+</html>
