@@ -1,682 +1,600 @@
 <!DOCTYPE html>
-<html lang="ne">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Nirmal Computer & Photocopy Center - Professional Services in Kathmandu">
-<meta name="theme-color" content="#1E40AF">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<link rel="manifest" href="manifest.json">
-<link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%231E40AF' width='192' height='192'/><text x='50%' y='50%' font-size='100' font-weight='bold' fill='%23FFD700' text-anchor='middle' dy='.3em'>न</text></svg>">
-<title>Nirmal Computer & Photocopy - काठमाडौं</title>
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html, body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background: #f5f5f5; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>निर्मल कम्प्युटर एण्ड फोटोकपी सेन्टर | Nirmal Computer & Photocopy</title>
+    <meta name="description" content="निर्मल कम्प्युटर एण्ड फोटोकपी सेन्टर - Kalanki, Kathmandu. भूसेवा, मालपोत, प्रिन्ट, फोटोकपी सेवा">
+    <meta name="theme-color" content="#FFD700">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-.container { max-width: 500px; margin: 0 auto; background: #fff; border-radius: 18px; border: 1px solid #e0e0e0; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
 
-.header { 
-  background: linear-gradient(135deg, #FFD700 0%, #FFF44F 40%, #1E40AF 100%);
-  padding: 36px 20px; 
-  text-align: center; 
-  border-bottom: 5px solid #1E40AF;
-  position: relative;
-  box-shadow: 0 4px 12px rgba(30, 64, 175, 0.15);
-}
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
 
-.header-logo { 
-  font-size: 32px; 
-  font-weight: 800; 
-  color: #1E40AF;
-  letter-spacing: -1px;
-  text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
-}
+        /* HEADER GRADIENT */
+        .header {
+            background: linear-gradient(135deg, #FFD700 0%, #1E40AF 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+        }
 
-.header-sub { 
-  font-size: 14px; 
-  color: #1E40AF;
-  margin-top: 8px; 
-  font-weight: 700;
-  letter-spacing: 0.3px;
-}
+        .header h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
 
-.badge { 
-  display: inline-block; 
-  background: #1E40AF; 
-  color: #FFF; 
-  padding: 6px 14px; 
-  border-radius: 20px; 
-  font-size: 10px; 
-  font-weight: 700; 
-  margin-top: 12px; 
-  letter-spacing: 0.5px;
-  box-shadow: 0 2px 8px rgba(30, 64, 175, 0.3);
-}
+        .header .subtitle {
+            font-size: 14px;
+            opacity: 0.95;
+            letter-spacing: 0.5px;
+        }
 
-.view-counter {
-  background: rgba(30, 64, 175, 0.1);
-  color: #1E40AF;
-  padding: 6px 12px;
-  border-radius: 16px;
-  font-size: 10px;
-  font-weight: 700;
-  margin-top: 10px;
-  display: inline-block;
-  letter-spacing: 0.3px;
-}
+        /* LANGUAGE TOGGLE */
+        .lang-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-bottom: 1px solid #eee;
+        }
 
-.controls { 
-  display: flex; 
-  justify-content: space-between; 
-  align-items: center; 
-  padding: 16px; 
-  border-bottom: 1px solid #e0e0e0; 
-  background: #f9f9f9; 
-}
+        .lang-btn {
+            padding: 8px 20px;
+            border: 2px solid #1E40AF;
+            background: white;
+            color: #1E40AF;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
 
-.toggle-wrapper { 
-  display: flex; 
-  gap: 0; 
-}
+        .lang-btn.active {
+            background: #1E40AF;
+            color: white;
+        }
 
-.toggle-wrapper button { 
-  flex: 1; 
-  padding: 10px 14px; 
-  border: 1.5px solid #1E40AF; 
-  background: #fff; 
-  cursor: pointer; 
-  font-size: 12px; 
-  font-weight: 700; 
-  transition: all 0.3s; 
-  color: #1E40AF;
-}
+        .lang-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+        }
 
-.toggle-wrapper button.active { 
-  background: #1E40AF; 
-  color: #FFF; 
-  border-color: #1E40AF; 
-}
+        /* CONTENT */
+        .content {
+            padding: 20px;
+            flex: 1;
+        }
 
-.toggle-wrapper button:first-child { 
-  border-radius: 8px 0 0 8px; 
-}
+        .section {
+            margin-bottom: 25px;
+        }
 
-.toggle-wrapper button:last-child { 
-  border-radius: 0 8px 8px 0; 
-}
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1E40AF;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
 
-.content { 
-  padding: 24px 16px; 
-  max-height: 600px; 
-  overflow-y: auto; 
-}
+        /* LOCATION */
+        .location-card {
+            background: #f0f8ff;
+            padding: 15px;
+            border-left: 4px solid #FFD700;
+            border-radius: 4px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
 
-.section-title { 
-  font-size: 11px; 
-  font-weight: 800; 
-  color: #1E40AF; 
-  margin-top: 20px; 
-  margin-bottom: 16px; 
-  text-transform: uppercase; 
-  letter-spacing: 1.2px; 
-}
+        .location-card strong {
+            color: #1E40AF;
+        }
 
-.services-grid { 
-  display: grid; 
-  grid-template-columns: 1fr 1fr; 
-  gap: 12px; 
-}
+        /* SERVICES GRID */
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
 
-.service-box { 
-  padding: 16px; 
-  border-radius: 12px; 
-  border: 1.5px solid #e0e0e0; 
-  background: #f9f9f9; 
-  transition: all 0.3s; 
-  cursor: pointer;
-  border-left: 4px solid #1E40AF;
-}
+        .service-item {
+            background: linear-gradient(135deg, #FFD700 0%, rgba(255, 215, 0, 0.1) 100%);
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 12px;
+            font-weight: 600;
+            color: #1E40AF;
+            transition: all 0.3s;
+            border: 1px solid rgba(30, 64, 175, 0.2);
+        }
 
-.service-box:hover { 
-  transform: translateY(-3px); 
-  border-color: #1E40AF; 
-  box-shadow: 0 6px 16px rgba(30, 64, 175, 0.15); 
-  background: rgba(30, 64, 175, 0.03);
-}
+        .service-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 16px rgba(30, 64, 175, 0.2);
+        }
 
-.service-icon { 
-  font-size: 24px; 
-  margin-bottom: 10px; 
-}
+        /* ACTION BUTTONS */
+        .action-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 20px 0;
+        }
 
-.service-title { 
-  font-weight: 700; 
-  font-size: 12px; 
-  color: #1E40AF; 
-  margin-bottom: 4px; 
-}
+        .btn {
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+            color: white;
+        }
 
-.service-desc { 
-  font-size: 11px; 
-  color: #666; 
-  line-height: 1.4; 
-}
+        .btn-call {
+            background: #1E40AF;
+        }
 
-.divider { 
-  height: 1px; 
-  background: #e0e0e0; 
-  margin: 20px 0; 
-}
+        .btn-call:hover {
+            background: #152d6f;
+            box-shadow: 0 6px 16px rgba(30, 64, 175, 0.4);
+            transform: translateY(-2px);
+        }
 
-.contact-section { }
+        .btn-whatsapp {
+            background: #25D366;
+        }
 
-.contact-item { 
-  display: flex; 
-  align-items: center; 
-  gap: 14px; 
-  padding: 14px; 
-  background: #f9f9f9; 
-  border-radius: 10px; 
-  margin-bottom: 10px; 
-  border: 1.5px solid #e0e0e0; 
-  transition: all 0.3s;
-  border-left: 4px solid #1E40AF;
-}
+        .btn-whatsapp:hover {
+            background: #1ea752;
+            box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
+            transform: translateY(-2px);
+        }
 
-.contact-item:hover { 
-  border-color: #1E40AF;
-  background: rgba(30, 64, 175, 0.03);
-}
+        .btn-vcard {
+            background: #FF9800;
+        }
 
-.contact-icon { 
-  width: 40px; 
-  height: 40px; 
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
-  background: linear-gradient(135deg, #FFD700, #1E40AF);
-  border-radius: 10px; 
-  color: #FFF; 
-  font-size: 18px; 
-  flex-shrink: 0;
-  font-weight: 700;
-}
+        .btn-vcard:hover {
+            background: #e68900;
+            box-shadow: 0 6px 16px rgba(255, 152, 0, 0.4);
+            transform: translateY(-2px);
+        }
 
-.contact-info { 
-  flex: 1; 
-}
+        .btn-share {
+            background: #9C27B0;
+        }
 
-.contact-label { 
-  font-size: 10px; 
-  color: #999; 
-  text-transform: uppercase; 
-  letter-spacing: 0.5px; 
-  font-weight: 700; 
-}
+        .btn-share:hover {
+            background: #7b1fa2;
+            box-shadow: 0 6px 16px rgba(156, 39, 176, 0.4);
+            transform: translateY(-2px);
+        }
 
-.contact-value { 
-  font-size: 13px; 
-  font-weight: 700; 
-  color: #1E40AF; 
-  margin-top: 3px; 
-}
+        .full-width {
+            grid-column: 1 / -1;
+        }
 
-.action-buttons { 
-  display: grid; 
-  grid-template-columns: 1fr 1fr 1fr 1fr; 
-  gap: 8px; 
-  padding: 20px 16px; 
-  background: #f9f9f9; 
-  border-top: 2px solid #1E40AF; 
-}
+        /* FOOTER */
+        .footer {
+            padding: 15px;
+            background: #f9f9f9;
+            border-top: 1px solid #eee;
+            text-align: center;
+            font-size: 12px;
+            color: #999;
+        }
 
-.action-btn { 
-  padding: 12px 8px; 
-  border: 1.5px solid #1E40AF; 
-  background: #fff; 
-  border-radius: 10px; 
-  cursor: pointer; 
-  font-size: 11px; 
-  font-weight: 700; 
-  transition: all 0.3s; 
-  text-align: center;
-  color: #1E40AF;
-}
+        .view-counter {
+            display: inline-block;
+            background: #FFD700;
+            color: #1E40AF;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
 
-.action-btn:hover { 
-  background: #1E40AF; 
-  color: #FFF; 
-  transform: scale(1.05);
-}
+        /* MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
 
-.action-btn:active {
-  transform: scale(0.98);
-}
+        .modal.active {
+            display: flex;
+        }
 
-.footer { 
-  padding: 20px 16px; 
-  text-align: center; 
-  background: linear-gradient(135deg, #FFD700, #1E40AF);
-  border-top: 3px solid #1E40AF;
-}
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            max-width: 90%;
+            animation: slideUp 0.3s ease;
+        }
 
-.footer-text { 
-  font-size: 13px; 
-  font-weight: 700; 
-  color: #1E40AF; 
-}
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
 
-.footer-sub { 
-  font-size: 11px; 
-  color: #1E40AF; 
-  margin-top: 6px; 
-  font-weight: 600; 
-}
+        .modal-content h3 {
+            color: #1E40AF;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
 
-.hidden { 
-  display: none; 
-}
+        .modal-content p {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
 
-.offline-banner {
-  background: #FFA500;
-  color: #000;
-  padding: 10px;
-  text-align: center;
-  font-size: 12px;
-  font-weight: 700;
-  display: none;
-}
+        .modal-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
 
-.offline-banner.show {
-  display: block;
-}
+        .modal-buttons button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
 
-.sync-status {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  padding: 8px 12px;
-  background: #FFD700;
-  border-radius: 20px;
-  font-size: 10px;
-  font-weight: 700;
-  color: #000;
-  display: none;
-  z-index: 999;
-}
+        .modal-btn-confirm {
+            background: #1E40AF;
+            color: white;
+        }
 
-.sync-status.show {
-  display: block;
-  animation: pulse 0.6s ease-in-out;
-}
+        .modal-btn-confirm:hover {
+            background: #152d6f;
+        }
 
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
-}
+        .modal-btn-cancel {
+            background: #ddd;
+            color: #333;
+        }
 
-@media (max-width: 480px) {
-  .container {
-    border-radius: 0;
-    border: none;
-  }
-  
-  .header {
-    padding: 28px 16px;
-  }
-  
-  .header-logo {
-    font-size: 28px;
-  }
-}
-</style>
+        .modal-btn-cancel:hover {
+            background: #ccc;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .action-buttons {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* HIDDEN CLASS */
+        .hidden {
+            display: none;
+        }
+
+        /* NEPALI FONT SUPPORT */
+        body {
+            font-family: 'Noto Sans Devanagari', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header">
+            <h1 id="title_main">निर्मल कम्प्युटर एण्ड फोटोकपी सेन्टर</h1>
+            <div class="subtitle" id="title_sub">Nirmal Computer & Photocopy Center</div>
+        </div>
 
-<div class="offline-banner" id="offlineBanner">📡 Offline Mode - Basic Info Available</div>
+        <!-- LANGUAGE TOGGLE -->
+        <div class="lang-toggle">
+            <button class="lang-btn active" onclick="setLanguage('ne')">नेपाली</button>
+            <button class="lang-btn" onclick="setLanguage('en')">English</button>
+        </div>
 
-<div class="container">
-  <div class="header">
-    <div class="header-logo">निर्मल</div>
-    <div class="header-sub">कम्प्युटर एण्ड फोटोकपी सेन्टर</div>
-    <div class="badge">📍 काठमाडौं</div>
-    <div class="view-counter" id="viewCounter">👁️ Views: 0</div>
-  </div>
+        <!-- MAIN CONTENT -->
+        <div class="content">
+            <!-- LOCATION SECTION -->
+            <div class="section">
+                <div class="section-title">📍 <span id="location_title">स्थान</span></div>
+                <div class="location-card">
+                    <strong id="location_name">निर्मल कम्प्युटर एण्ड फोटोकपी सेन्टर</strong><br>
+                    <span id="location_area">कलाङ्की, काठमाडौँ</span><br>
+                    <span id="location_detail" style="font-size: 12px; color: #666;">कलाङ्की मालपोत कार्यालय नजिक</span>
+                </div>
+            </div>
 
-  <div class="controls">
-    <div class="toggle-wrapper">
-      <button class="active" onclick="toggleLang(this, 'ne')">नेपाली</button>
-      <button onclick="toggleLang(this, 'en')">English</button>
-    </div>
-  </div>
+            <!-- SERVICES SECTION -->
+            <div class="section">
+                <div class="section-title">🛠️ <span id="services_title">सेवाहरु (१२ कुल)</span></div>
+                <div class="services-grid">
+                    <div class="service-item" id="svc1">भूसेवा केन्द्र</div>
+                    <div class="service-item" id="svc2">मालपोत सेवा</div>
+                    <div class="service-item" id="svc3">नवशा प्रिन्ट</div>
+                    <div class="service-item" id="svc4">घर/जग्गा लेनदेन</div>
+                    <div class="service-item" id="svc5">रंगीन प्रिन्ट</div>
+                    <div class="service-item" id="svc6">स्पाइरल बाँध</div>
+                    <div class="service-item" id="svc7">PVC कार्ड</div>
+                    <div class="service-item" id="svc8">लेमिनेशन</div>
+                    <div class="service-item" id="svc9">स्वच्छन</div>
+                    <div class="service-item" id="svc10">स्टेशनरी</div>
+                    <div class="service-item" id="svc11">फेब्रिक प्रिन्ट</div>
+                    <div class="service-item" id="svc12">फोटोकपी</div>
+                </div>
+            </div>
 
-  <div class="content">
-    <div id="ne-content">
-      <div class="section-title">🎯 सेवाहरु</div>
-      <div class="services-grid">
-        <div class="service-box">
-          <div class="service-icon">🏛️</div>
-          <div class="service-title">भूसेवा केन्द्र</div>
-          <div class="service-desc">अनलाइन भूसेवा र सम्पत्ति दस्तावेज</div>
+            <!-- ACTION BUTTONS -->
+            <div class="action-buttons">
+                <button class="btn btn-call" onclick="callNilkeshor()">
+                    📞 <span id="btn_call">कल गर्नुहोस्</span>
+                </button>
+                <button class="btn btn-whatsapp" onclick="whatsappNilkeshor()">
+                    💬 <span id="btn_whatsapp">WhatsApp</span>
+                </button>
+                <button class="btn btn-vcard" onclick="downloadVCard()">
+                    💾 <span id="btn_vcard">vCard डाउनलोड</span>
+                </button>
+                <button class="btn btn-share" onclick="shareProfile()">
+                    📤 <span id="btn_share">साझा गर्नुहोस्</span>
+                </button>
+            </div>
         </div>
-        <div class="service-box">
-          <div class="service-icon">📋</div>
-          <div class="service-title">मालपोत सेवा</div>
-          <div class="service-desc">कानूनी दस्तावेज प्रशोधन</div>
-        </div>
-        <div class="service-box">
-          <div class="service-icon">🖨️</div>
-          <div class="service-title">नवशा प्रिन्ट</div>
-          <div class="service-desc">उच्च गुणस्तरको छपाई</div>
-        </div>
-        <div class="service-box">
-          <div class="service-icon">📋</div>
-          <div class="service-title">फोटोकपी</div>
-          <div class="service-desc">हरेक कागजपत्रको कपी</div>
-        </div>
-        <div class="service-box">
-          <div class="service-icon">🌈</div>
-          <div class="service-title">कलर प्रिन्ट</div>
-          <div class="service-desc">पेशेवर रङ्गीन सेवा</div>
-        </div>
-        <div class="service-box">
-          <div class="service-icon">📑</div>
-          <div class="service-title">स्पाइरल बाँध</div>
-          <div class="service-desc">स्पाइरल र हार्ड बाँध सेवा</div>
-        </div>
-        <div class="service-box">
-          <div class="service-icon">🆔</div>
-          <div class="service-title">PVC कार्ड</div>
-          <div class="service-desc">पहिचान र व्यवसाय कार्ड</div>
-        </div>
-        <div class="service-box">
-          <div class="service-icon">✨</div>
-          <div class="service-title">लेमिनेशन</div>
-          <div class="service-desc">सुरक्षा कोटिङ्ग सेवा</div>
-        </div>
-        <div class="service-box">
-          <div class="service-icon">📷</div>
-          <div class="service-title">स्वच्छन</div>
-          <div class="service-desc">डिजिटल स्क्यानिङ्ग</div>
-        </div>
-        <div class="service-box">
-          <div class="service-icon">📦</div>
-          <div class="service-title">स्टेशनरी</div>
-          <div class="service-desc">कार्यालय आपूर्ति सामग्री</div>
-        </div>
-        <div class="service-box">
-          <div class="service-icon">👕</div>
-          <div class="service-title">फेब्रिक प्रिन्ट</div>
-          <div class="service-desc">कपडा र झोला प्रिन्टिङ्ग</div>
-        </div>
-        <div class="service-box">
-          <div class="service-icon">🏠</div>
-          <div class="service-title">घर/जग्गा</div>
-          <div class="service-desc">सम्पत्ति लेनदेन सेवा</div>
-        </div>
-      </div>
 
-      <div class="divider"></div>
-
-      <div class="contact-section">
-        <div class="section-title">📞 सम्पर्क जानकारी</div>
-        <div class="contact-item">
-          <div class="contact-icon">📱</div>
-          <div class="contact-info">
-            <div class="contact-label">निर्मल महर्जन</div>
-            <div class="contact-value">+977 9841631075</div>
-          </div>
+        <!-- FOOTER -->
+        <div class="footer">
+            <div id="footer_text">निर्मल कम्प्युटर एण्ड फोटोकपी सेन्टर</div>
+            <div class="view-counter">👁️ <span id="view_count">0</span> <span id="views_text">दृश्य</span></div>
         </div>
-        <div class="contact-item">
-          <div class="contact-icon">📱</div>
-          <div class="contact-info">
-            <div class="contact-label">नील केशोर महर्जन</div>
-            <div class="contact-value">+977 9841331396</div>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon">📍</div>
-          <div class="contact-info">
-            <div class="contact-label">ठेगाना</div>
-            <div class="contact-value">कालंकी, काठमाडौं</div>
-          </div>
-        </div>
-      </div>
     </div>
 
-    <div id="en-content" class="hidden">
-      <div class="section-title">🎯 Services</div>
-      <div class="services-grid">
-        <div class="service-box">
-          <div class="service-icon">🏛️</div>
-          <div class="service-title">Land Registry</div>
-          <div class="service-desc">Online property services</div>
+    <!-- CALL CONFIRMATION MODAL -->
+    <div class="modal" id="callModal">
+        <div class="modal-content">
+            <h3 id="call_modal_title">कल गर्नुहोस्</h3>
+            <p id="call_modal_text">नीलकेशोर महर्जनलाई कल गर्न तयार हुनुहुन्छ?</p>
+            <div class="modal-buttons">
+                <button class="modal-btn-confirm" onclick="confirmCall()">✓ <span id="call_yes">गर्नुहोस्</span></button>
+                <button class="modal-btn-cancel" onclick="closeCallModal()"><span id="call_no">रद्द गर्नुहोस्</span></button>
+            </div>
         </div>
-        <div class="service-box">
-          <div class="service-icon">📋</div>
-          <div class="service-title">Property Services</div>
-          <div class="service-desc">Legal documentation</div>
-        </div>
-        <div class="service-box">
-          <div class="service-icon">🖨️</div>
-          <div class="service-title">New Print</div>
-          <div class="service-desc">High-quality printing</div>
-        </div>
-        <div class="service-box">
-          <div class="service-icon">📋</div>
-          <div class="service-title">Photocopy</div>
-          <div class="service-desc">All document copies</div>
-        </div>
-        <div class="service-box">
-          <div class="service-icon">🌈</div>
-          <div class="service-title">Color Print</div>
-          <div class="service-desc">Professional coloring</div>
-        </div>
-        <div class="service-box">
-          <div class="service-icon">📑</div>
-          <div class="service-title">Binding</div>
-          <div class="service-desc">Spiral & hard binding</div>
-        </div>
-        <div class="service-box">
-          <div class="service-icon">🆔</div>
-          <div class="service-title">PVC Cards</div>
-          <div class="service-desc">ID & business cards</div>
-        </div>
-        <div class="service-box">
-          <div class="service-icon">✨</div>
-          <div class="service-title">Lamination</div>
-          <div class="service-desc">Protective coating</div>
-        </div>
-        <div class="service-box">
-          <div class="service-icon">📷</div>
-          <div class="service-title">Scanning</div>
-          <div class="service-desc">Digital scanning</div>
-        </div>
-        <div class="service-box">
-          <div class="service-icon">📦</div>
-          <div class="service-title">Stationery</div>
-          <div class="service-desc">Office supplies</div>
-        </div>
-        <div class="service-box">
-          <div class="service-icon">👕</div>
-          <div class="service-title">Fabric Print</div>
-          <div class="service-desc">Cloth & bag printing</div>
-        </div>
-        <div class="service-box">
-          <div class="service-icon">🏠</div>
-          <div class="service-title">Real Estate</div>
-          <div class="service-desc">Property transactions</div>
-        </div>
-      </div>
-
-      <div class="divider"></div>
-
-      <div class="contact-section">
-        <div class="section-title">📞 Contact Information</div>
-        <div class="contact-item">
-          <div class="contact-icon">📱</div>
-          <div class="contact-info">
-            <div class="contact-label">Nirmal Maharjan</div>
-            <div class="contact-value">+977 9841631075</div>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon">📱</div>
-          <div class="contact-info">
-            <div class="contact-label">Nilkeshor Maharjan</div>
-            <div class="contact-value">+977 9841331396</div>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon">📍</div>
-          <div class="contact-info">
-            <div class="contact-label">Address</div>
-            <div class="contact-value">Kalanki, Kathmandu</div>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
 
-  <div class="action-buttons">
-    <button class="action-btn" onclick="callPhone()">📞</button>
-    <button class="action-btn" onclick="whatsapp()">💬</button>
-    <button class="action-btn" onclick="downloadVCard()">💾</button>
-    <button class="action-btn" onclick="shareProfile()">📤</button>
-  </div>
+    <!-- WHATSAPP CONFIRMATION MODAL -->
+    <div class="modal" id="whatsappModal">
+        <div class="modal-content">
+            <h3 id="whatsapp_modal_title">WhatsApp सन्देश</h3>
+            <p id="whatsapp_modal_text">नीलकेशोर महर्जनलाई सन्देश पठाउन तयार हुनुहुन्छ?</p>
+            <div class="modal-buttons">
+                <button class="modal-btn-confirm" onclick="confirmWhatsapp()">✓ <span id="whatsapp_yes">पठाउनुहोस्</span></button>
+                <button class="modal-btn-cancel" onclick="closeWhatsappModal()"><span id="whatsapp_no">रद्द गर्नुहोस्</span></button>
+            </div>
+        </div>
+    </div>
 
-  <div class="footer">
-    <p class="footer-text">Nirmal Computer & Photocopy</p>
-    <p class="footer-sub">Kalanki, Kathmandu • Nepal</p>
-  </div>
-</div>
+    <script>
+        // LANGUAGE DATA
+        const translations = {
+            ne: {
+                title_main: "निर्मल कम्प्युटर एण्ड फोटोकपी सेन्टर",
+                title_sub: "Nirmal Computer & Photocopy Center",
+                location_title: "स्थान",
+                location_name: "निर्मल कम्प्युटर एण्ड फोटोकपी सेन्टर",
+                location_area: "कलाङ्की, काठमाडौँ",
+                location_detail: "कलाङ्की मालपोत कार्यालय नजिक",
+                services_title: "सेवाहरु (१२ कुल)",
+                btn_call: "कल गर्नुहोस्",
+                btn_whatsapp: "WhatsApp",
+                btn_vcard: "vCard डाउनलोड",
+                btn_share: "साझा गर्नुहोस्",
+                footer_text: "निर्मल कम्प्युटर एण्ड फोटोकपी सेन्टर",
+                views_text: "दृश्य",
+                call_modal_title: "कल गर्नुहोस्",
+                call_modal_text: "नीलकेशोर महर्जनलाई कल गर्न तयार हुनुहुन्छ?",
+                call_yes: "गर्नुहोस्",
+                call_no: "रद्द गर्नुहोस्",
+                whatsapp_modal_title: "WhatsApp सन्देश",
+                whatsapp_modal_text: "नीलकेशोर महर्जनलाई सन्देश पठाउन तयार हुनुहुन्छ?",
+                whatsapp_yes: "पठाउनुहोस्",
+                whatsapp_no: "रद्द गर्नुहोस्"
+            },
+            en: {
+                title_main: "Nirmal Computer & Photocopy Center",
+                title_sub: "निर्मल कम्प्युटर एण्ड फोटोकपी सेन्टर",
+                location_title: "Location",
+                location_name: "Nirmal Computer & Photocopy Center",
+                location_area: "Kalanki, Kathmandu",
+                location_detail: "Near Kalanki Malpot Office",
+                services_title: "Services (12 Total)",
+                btn_call: "Call",
+                btn_whatsapp: "WhatsApp",
+                btn_vcard: "Download vCard",
+                btn_share: "Share",
+                footer_text: "Nirmal Computer & Photocopy Center",
+                views_text: "views",
+                call_modal_title: "Make a Call",
+                call_modal_text: "Call Nilkeshor Maharjan?",
+                call_yes: "Call",
+                call_no: "Cancel",
+                whatsapp_modal_title: "Send Message",
+                whatsapp_modal_text: "Send WhatsApp to Nilkeshor Maharjan?",
+                whatsapp_yes: "Send",
+                whatsapp_no: "Cancel"
+            }
+        };
 
-<div class="sync-status" id="syncStatus">✅ Synced</div>
+        const services = {
+            ne: ["भूसेवा केन्द्र", "मालपोत सेवा", "नवशा प्रिन्ट", "घर/जग्गा लेनदेन", "रंगीन प्रिन्ट", "स्पाइरल बाँध", "PVC कार्ड", "लेमिनेशन", "स्वच्छन", "स्टेशनरी", "फेब्रिक प्रिन्ट", "फोटोकपी"],
+            en: ["Land Registry (Bhusewa)", "Property Services (Malpot)", "New Print", "Real Estate Transactions", "Color Print", "Spiral Binding", "PVC Cards", "Lamination", "Scanning", "Stationery", "Fabric Print", "Photocopy"]
+        };
 
-<script>
-// Offline Detection
-window.addEventListener('online', () => {
-  document.getElementById('offlineBanner').classList.remove('show');
-  showSyncStatus('✅ Back Online');
-});
+        let currentLanguage = 'ne';
 
-window.addEventListener('offline', () => {
-  document.getElementById('offlineBanner').classList.add('show');
-  showSyncStatus('⚠️ Offline Mode');
-});
+        // SET LANGUAGE
+        function setLanguage(lang) {
+            currentLanguage = lang;
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
 
-// View Counter - localStorage
-function initViewCounter() {
-  try {
-    let views = localStorage.getItem('nirmal_views') || 0;
-    views = parseInt(views) + 1;
-    localStorage.setItem('nirmal_views', views);
-    document.getElementById('viewCounter').textContent = '👁️ Views: ' + views;
-  } catch(e) {
-    console.log('localStorage not available');
-  }
-}
+            // UPDATE TEXT
+            for (let key in translations[lang]) {
+                const element = document.getElementById(key);
+                if (element) element.textContent = translations[lang][key];
+            }
 
-// Show Sync Status
-function showSyncStatus(message) {
-  const status = document.getElementById('syncStatus');
-  status.textContent = message;
-  status.classList.add('show');
-  setTimeout(() => status.classList.remove('show'), 3000);
-}
+            // UPDATE SERVICES
+            for (let i = 1; i <= 12; i++) {
+                const svc = document.getElementById(`svc${i}`);
+                if (svc) svc.textContent = services[lang][i - 1];
+            }
+        }
 
-// Language Toggle
-function toggleLang(btn, lang) {
-  document.querySelectorAll('.toggle-wrapper button').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  
-  document.getElementById('ne-content').classList.toggle('hidden', lang !== 'ne');
-  document.getElementById('en-content').classList.toggle('hidden', lang !== 'en');
-}
+        // CALL FUNCTION (NILKESHOR ONLY)
+        function callNilkeshor() {
+            document.getElementById('callModal').classList.add('active');
+        }
 
-// ✅ FINAL CORRECT: Call Function with POPUP - CORRECT PHONE NUMBERS (ALL 12 DIGITS)
-function callPhone() {
-  const choice = confirm(`कसलाई कल गर्न चाहनुहुन्छ?\n\nOK = निर्मल महर्जन\nCancel = नील केशोर महर्जन`);
-  
-  if (choice) {
-    window.location.href = 'tel:+9779841631075';
-    showSyncStatus('📞 Calling: Nirmal Maharjan');
-  } else {
-    window.location.href = 'tel:+9779841331396';
-    showSyncStatus('📞 Calling: Nilkeshor Maharjan');
-  }
-}
+        function confirmCall() {
+            window.location.href = 'tel:+9779841331396';
+            closeCallModal();
+            trackView();
+        }
 
-// ✅ FINAL CORRECT: WhatsApp Function with POPUP - CORRECT PHONE NUMBERS
-function whatsapp() {
-  const choice = confirm(`कसलाई सन्देश गर्न चाहनुहुन्छ?\n\nOK = निर्मल महर्जन\nCancel = नील केशोर महर्जन`);
-  
-  if (choice) {
-    window.open(`https://wa.me/9779841631075?text=नमस्ते%20निर्मल%20कम्प्युटर`, '_blank');
-    showSyncStatus('💬 WhatsApp: Nirmal Maharjan');
-  } else {
-    window.open(`https://wa.me/9779841331396?text=नमस्ते%20निर्मल%20कम्प्युटर`, '_blank');
-    showSyncStatus('💬 WhatsApp: Nilkeshor Maharjan');
-  }
-}
+        function closeCallModal() {
+            document.getElementById('callModal').classList.remove('active');
+        }
 
-// Download vCard
-function downloadVCard() {
-  const vcard = `BEGIN:VCARD
+        // WHATSAPP FUNCTION (NILKESHOR ONLY)
+        function whatsappNilkeshor() {
+            document.getElementById('whatsappModal').classList.add('active');
+        }
+
+        function confirmWhatsapp() {
+            const message = currentLanguage === 'ne' ? 'नमस्ते निर्मल कम्प्युटर' : 'Hello Nirmal Computer';
+            const encodedMsg = encodeURIComponent(message);
+            window.open(`https://wa.me/9779841331396?text=${encodedMsg}`, '_blank');
+            closeWhatsappModal();
+            trackView();
+        }
+
+        function closeWhatsappModal() {
+            document.getElementById('whatsappModal').classList.remove('active');
+        }
+
+        // VCARD DOWNLOAD
+        function downloadVCard() {
+            const vcardContent = `BEGIN:VCARD
 VERSION:3.0
 FN:Nirmal Computer & Photocopy Center
-ORG:Nirmal Computer & Photocopy
-TEL;TYPE=WORK:+977 9841631075
-TEL;TYPE=WORK:+977 9841331396
-ADR:;;Kalanki Malpot;;Kathmandu;;Nepal
-NOTE:Nirmal Maharjan | Nilkeshor Maharjan\nProfessional Computer Services - Printing, Photocopy, PVC Cards, Lamination, Scanning, Binding, Land Registry Services, Property Documentation
-URL:${window.location.href}
+ORG:निर्मल कम्प्युटर एण्ड फोटोकपी सेन्टर
+TITLE:Computer & Photocopy Services
+TEL;TYPE=CELL:+977-9841-331396
+NICKNAME:Nilkeshor
+ADR;TYPE=WORK:;;Kalanki Malpot;Kathmandu;;44600;Nepal
+URL:https://nirmal-computer.basfoundry.co
+NOTE:भूसेवा केन्द्र, मालपोत सेवा, प्रिन्ट, फोटोकपी
 END:VCARD`;
 
-  const element = document.createElement('a');
-  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(vcard));
-  element.setAttribute('download', 'Nirmal_Computer.vcf');
-  element.style.display = 'none';
-  document.body.appendChild(element);
-  element.click();
-  document.body.removeChild(element);
-  
-  showSyncStatus('💾 vCard Downloaded');
-}
+            const blob = new Blob([vcardContent], { type: 'text/vcard' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'Nirmal_Computer.vcf';
+            a.click();
+            trackView();
+        }
 
-// Share Profile
-function shareProfile() {
-  if (navigator.share) {
-    navigator.share({
-      title: 'Nirmal Computer & Photocopy Center',
-      text: 'Check out this amazing computer and photocopy center in Kalanki, Kathmandu!',
-      url: window.location.href
-    });
-  } else {
-    const url = window.location.href;
-    const text = `Nirmal Computer & Photocopy Center - ${url}`;
-    navigator.clipboard.writeText(text).then(() => {
-      showSyncStatus('📋 Link Copied');
-    }).catch(() => {
-      alert('Share: ' + url);
-    });
-  }
-}
+        // SHARE FUNCTION
+        function shareProfile() {
+            const shareData = {
+                title: 'Nirmal Computer & Photocopy Center',
+                text: currentLanguage === 'ne' ? 'निर्मल कम्प्युटर एण्ड फोटोकपी सेन्टर - कलाङ्की, काठमाडौँ' : 'Nirmal Computer & Photocopy Center - Kalanki, Kathmandu',
+                url: 'https://nirmal-computer.basfoundry.co'
+            };
 
-// Initialize
-document.addEventListener('DOMContentLoaded', () => {
-  initViewCounter();
-  
-  if (!navigator.onLine) {
-    document.getElementById('offlineBanner').classList.add('show');
-    showSyncStatus('⚠️ Offline Mode');
-  }
-  
-  // Service Worker removed - not required for e-profile functionality
-  // QR code and all features work without it
-});
-</script>
+            if (navigator.share) {
+                navigator.share(shareData);
+            } else {
+                alert('Share not supported. URL: ' + shareData.url);
+            }
+            trackView();
+        }
 
+        // VIEW COUNTER
+        function trackView() {
+            let views = localStorage.getItem('nirmalViews') || 0;
+            views = parseInt(views) + 1;
+            localStorage.setItem('nirmalViews', views);
+            document.getElementById('view_count').textContent = views;
+        }
+
+        // INITIALIZE
+        window.addEventListener('load', () => {
+            setLanguage('ne');
+            trackView();
+        });
+
+        // CLOSE MODAL ON OUTSIDE CLICK
+        window.addEventListener('click', (e) => {
+            if (e.target.id === 'callModal') closeCallModal();
+            if (e.target.id === 'whatsappModal') closeWhatsappModal();
+        });
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
 </body>
 </html>
